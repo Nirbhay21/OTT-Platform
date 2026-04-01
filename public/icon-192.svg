@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 330">
+  <defs>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f98b1e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d35400;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="glossGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0" />
+    </linearGradient>
+
+    <filter id="pntShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect x="10" y="10" width="420" height="310" rx="25" ry="25" fill="url(#bodyGrad)" stroke="#b34500" stroke-width="2"/>
+  
+  <path d="M10 100 Q 10 10 100 10 L 430 10 L 10 320 Z" fill="url(#glossGrad)" style="pointer-events:none" />
+
+  <g fill="#fff" stroke="#b34500" stroke-width="1">
+    <rect x="35" y="45" width="45" height="55" rx="8" />
+    <rect x="35" y="135" width="45" height="55" rx="8" />
+    <rect x="35" y="225" width="45" height="55" rx="8" />
+  </g>
+
+  <g fill="#fff" stroke="#b34500" stroke-width="1">
+    <rect x="360" y="45" width="45" height="55" rx="8" />
+    <rect x="360" y="135" width="45" height="55" rx="8" />
+    <rect x="360" y="225" width="45" height="55" rx="8" />
+  </g>
+
+  <path d="M165,85 L315,165 L165,245 Z" fill="#fff5e6" filter="url(#pntShadow)" stroke="#e6d5bc" stroke-width="2" stroke-linejoin="round" />
+</svg>

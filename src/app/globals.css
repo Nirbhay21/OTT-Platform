@@ -1,26 +1,144 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: auto !important;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  /* Brand Typography */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-mono, monospace;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Cinema Theme Colors */
+  --color-brand-primary: #f26101; /* Vivid Orange Play Button */
+  --color-brand-secondary: #ffb142; /* Sunny Gold highlight */
+  --color-brand-accent: #ff793f; /* Mid-tone transition */
+
+  /* Modern Dark UI Palette for Premium OTT experience */
+  --color-background: #0a0a0a; /* Pure AMOLED Black */
+  --color-foreground: #ededed; /* Soft White Text */
+
+  --color-card: #141414; /* Elevated Layer Surface */
+  --color-card-foreground: #ffffff;
+
+  --color-muted: #262626; /* Low Contrast Borders */
+  --color-muted-foreground: #a3a3a3; /* Subtitle/Secondary text */
+
+  /* Professionally Crafted Gradients */
+  --background-image-gradient-brand: linear-gradient(
+    135deg,
+    var(--color-brand-primary),
+    var(--color-brand-secondary)
+  );
+  --background-image-gradient-hero: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(10, 10, 10, 0.8) 70%,
+    var(--color-background) 100%
+  );
+  --background-image-gradient-card: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+
+  /* Animation Tokens */
+  --animate-fade-in: fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --animate-skeleton: skeleton-loading 2s infinite ease-in-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-color: #1a1a1a;
+    }
+    50% {
+      background-color: #2a2a2a;
+    }
+    100% {
+      background-color: #1a1a1a;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Global Styles & Professional Resets */
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-muted);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Smooth Scrolling for modern feel */
+  html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+}
+
+/* Utility Extensions */
+@layer utilities {
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: var(--background-image-gradient-brand);
+  }
+
+  /* Mobile-first hidden scrollbars */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Frosted Glass Effect for Header/Nav */
+  .glass-morphism {
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hover-scale {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* High-quality Selection state */
+::selection {
+  background-color: var(--color-brand-primary);
+  color: #ffffff;
 }
