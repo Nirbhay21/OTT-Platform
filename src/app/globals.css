@@ -21,7 +21,7 @@ html {
   --color-card: #141414; /* Elevated Layer Surface */
   --color-card-foreground: #ffffff;
 
-  --color-muted: #262626; /* Low Contrast Borders */
+  --color-muted: #3f3f46; /* Stronger contrast borders */
   --color-muted-foreground: #a3a3a3; /* Subtitle/Secondary text */
 
   /* Professionally Crafted Gradients */
@@ -96,9 +96,9 @@ html {
     overflow-x: hidden;
   }
 
-  /* Smooth Scrolling for modern feel */
+  /* Keep page transitions instant without smooth scrolling */
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     scrollbar-gutter: stable;
   }
 }

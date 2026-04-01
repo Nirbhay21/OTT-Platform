@@ -1,9 +1,11 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MobileNavigation from "@/components/MobileNavigation";
+import ScrollToTop from "@/components/ScrollToTop";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import InstallPrompt from "../components/InstallPrompt";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,10 +34,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Chitrapat Team" }],
   icons: {
     icon: [
-      { url: "/icon-192.svg", type: "image/svg+xml", sizes: "192x192" },
-      { url: "/icon-512.svg", type: "image/svg+xml", sizes: "512x512" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: [{ url: "/apple-touch-icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
   },
   openGraph: {
     title: "Chitrapat | Premium OTT Platform",
@@ -60,12 +62,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans text-foreground antialiased selection:bg-brand-primary/30 selection:text-brand-primary`}
       >
         <div className="relative flex min-h-screen flex-col">
+          <ScrollToTop />
           <ServiceWorkerRegister />
+          <InstallPrompt />
           <Header />
           <main className="flex-1 pb-16 lg:pb-0">{children}</main>
           <Footer />

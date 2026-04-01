@@ -3,10 +3,10 @@
 import { navigation } from "@/config/navigation";
 import { useDebounce } from "@/hooks/use-debounce";
 import { Search } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
-import LogoIcon from "./icons/LogoIcon";
 import UserIcon from "./icons/UserIcon";
 
 const HeaderContent = () => {
@@ -48,16 +48,20 @@ const HeaderContent = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-500 bg-background/80 py-3 backdrop-blur-xl shadow-2xl border-b border-white/5`}
+      className={`sticky top-0 z-50 w-full transition-all duration-500 bg-background/80 py-3 backdrop-blur-xl shadow-2xl border-b border-white/15`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 lg:px-8">
         {/* Left: Logo & Desktop Nav */}
         <div className="flex items-center gap-10">
-          <Link href="/" className="flex items-center gap-2 group">
-            <LogoIcon className="h-9 w-9" />
-            <span className="text-gradient hidden text-2xl font-black tracking-tighter sm:block uppercase">
-              CHITRAPAT
-            </span>
+          <Link href="/" className="group inline-flex w-20 shrink-0">
+            <Image
+              src="/header-logo.svg"
+              alt="Chitralay"
+              width={560}
+              height={390}
+              priority
+              className="h-auto w-full object-contain transition-opacity duration-300 group-hover:opacity-90"
+            />
           </Link>
 
           <nav className="hidden items-center gap-6 lg:flex">
@@ -92,7 +96,7 @@ const HeaderContent = () => {
               }}
               onBlur={() => setIsHeaderInputFocused(false)}
               onChange={(e) => setSearchInput(e.target.value)}
-              className="w-32 rounded-full border border-white/10 bg-white/5 py-2 pl-10 pr-4 text-xs font-medium text-white transition-all focus:w-48 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-brand-primary sm:w-48 sm:text-sm sm:focus:w-64"
+              className="w-32 rounded-full border border-white/25 bg-white/5 py-2 pl-10 pr-4 text-xs font-medium text-white transition-all focus:w-48 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-brand-primary sm:w-48 sm:text-sm sm:focus:w-64"
             />
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground group-focus-within:text-brand-primary" />
           </div>

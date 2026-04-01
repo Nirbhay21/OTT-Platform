@@ -1,14 +1,14 @@
-const APP_CACHE = "chitrapat-app-v1";
-const RUNTIME_CACHE = "chitrapat-runtime-v1";
+const APP_CACHE = "chitrapat-app-v3";
+const RUNTIME_CACHE = "chitrapat-runtime-v3";
 const OFFLINE_URL = "/offline.html";
 
 const APP_SHELL = [
   "/",
   OFFLINE_URL,
   "/manifest.webmanifest",
-  "/icon-192.svg",
-  "/icon-512.svg",
-  "/apple-touch-icon.svg",
+  "/icon-192.png",
+  "/icon-512.png",
+  "/apple-touch-icon.png",
 ];
 
 self.addEventListener("install", (event) => {

@@ -86,9 +86,9 @@ export default function TrailerModal({ videos }: TrailerModalProps) {
               {/* Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-2xl transition-all hover:bg-white hover:text-black hover:scale-110 active:scale-95 cursor-pointer border border-white/10"
+                className="absolute top-3 right-3 z-50 flex h-7 w-7 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-2xl transition-all hover:bg-white hover:text-black hover:scale-110 active:scale-95 cursor-pointer border border-white/10 md:top-6 md:right-6 md:h-10 md:w-10"
               >
-                <X size={24} />
+                <X className="h-3 w-3 md:h-5 md:w-5" />
               </button>
 
               {trailer ? (
